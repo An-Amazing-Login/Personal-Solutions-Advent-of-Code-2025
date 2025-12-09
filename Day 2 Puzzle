@@ -1,0 +1,47 @@
+"""part one"""
+manualInput= '11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124'
+with open("input puzzle 2", 'r', encoding="utf-8") as inputFile:
+    autoInput=inputFile.read()
+#print(autoInput)
+ranges=autoInput.split(sep=',')
+
+def isDouble(str):
+    if ((len(str)%2)!=0):
+        return False
+    for j in range(len(str)//2):
+        if (str[j]!=str[j+(len(str)//2)]):
+            return False
+    
+    return True
+
+result=[]
+for x in ranges:
+    first=int(x.split(sep='-')[0])
+    last=int(x.split(sep='-')[1])
+    for i in range(first, last+1):
+        if isDouble(str(i)):
+            result.append(i)
+
+#print(result)
+print(sum(result))
+
+"""part two"""
+
+def isStringRepeating(str):
+    l=len(str)
+    for j in range((l//2)):
+        if ((str[:(j+1)]*(l//(j+1)))==str):
+            return True
+    
+    return False
+
+result=[]
+for x in ranges:
+    first=int(x.split(sep='-')[0])
+    last=int(x.split(sep='-')[1])
+    for i in range(first, last+1):
+        if isStringRepeating(str(i)):
+            result.append(i)
+
+#print(result)
+print(sum(result))

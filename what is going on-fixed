@@ -1,0 +1,34 @@
+manualInput= '11-22'
+#with open("input puzzle 2", 'r', encoding="utf-8") as inputFile:
+    #autoInput=inputFile.read()
+#print(autoInput)
+ranges=manualInput.split(sep=',')
+
+def isPalindromic(str):
+    for j in range(len(str)//2):
+        if (str[j]!=str[-j-1]):
+            return False
+    
+    return True
+
+    
+result=[]
+for x in ranges:
+    first=int(x.split(sep='-')[0])
+    last=int(x.split(sep='-')[1])
+    for i in range(first, last+1):
+        if isPalindromic('i'):
+            result.append(i)
+
+"""for i in range(11, 23):
+    if isPalindromic('i'):
+        result.append(i)"""
+
+print(ranges)
+print(first)
+print(last)
+
+print(isPalindromic('12'))
+print(isPalindromic('22'))
+print(result)
+#print(sum(result))
