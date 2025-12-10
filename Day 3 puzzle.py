@@ -7,7 +7,6 @@ manualInput=['987654321111111\n','811111111111119\n','234234234234278\n','818181
 cleanedInput= [x[:-1] for x in autoInput]
 
 def biggestSizeTwoSubsequence(string):
-    l=len(string)
     bigCandidate=string[-2:]
     for char in string[-3::-1]:
         if (char>=bigCandidate[0]):
@@ -22,7 +21,6 @@ print(sum(result))
 """second half"""
 
 def biggestSizeNSubsequence(string, n):
-    l=len(string)
     bigCandidate=string[-n:]
     for char in string[-(n+1)::-1]:
         if (char>=bigCandidate[0]):
