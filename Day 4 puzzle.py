@@ -52,22 +52,20 @@ print(result)
 changingGrid=calcGrid
 
 result=0
-previousChanges=True
-while previousChanges:
+onepassSum=1
+while (onepassSum>0):
     onepassSum=0
     changePoints=[]
     for i in range(1,h+1):
         for j in range(1,l+1):
-            if (calcGrid[i][j]=='1'):
-                if (isAccessible(i,j,changingGrid)==True):
-                    onepassSum+=1
-                    changePoints.append((i,j))
+            if ((calcGrid[i][j]=='1') and (isAccessible(i,j,changingGrid))):
+                onepassSum+=1
+                changePoints.append((i,j))
 
 
     result+=onepassSum
-    for tuple in changePoints:
-        changingGrid[tuple[0]]=changingGrid[tuple[0]][:tuple[1]]+'0'+changingGrid[tuple[0]][(tuple[1]+1):]
-    if (onepassSum==0):
-        previousChanges=False
+    for point in changePoints:
+        changingGrid[point[0]]=changingGrid[point[0]][:point[1]]+'0'+changingGrid[point[0]][(point[1]+1):]
+
 
 print(result)
